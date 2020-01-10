@@ -38,7 +38,6 @@ const App: React.FC = () => {
       const rawImageData = await response.arrayBuffer();
       const imageTensor = imageToTensor(rawImageData);
       const predictions = await mobilenetModel.classify(imageTensor);
-      console.log(predictions);
       setPredictions(predictions);
     } catch (error) {
       console.log(error);
