@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
 import * as tf from "@tensorflow/tfjs";
-import { fetch as tfjsFetch } from "@tensorflow/tfjs-react-native";
+import { fetch as tfjsFetch, decodeJpeg } from "@tensorflow/tfjs-react-native";
 import * as mobilenet from "@tensorflow-models/mobilenet";
+import * as FileSystem from "expo-file-system";
+import * as ImagePicker from 'expo-image-picker';
 import * as jpeg from "jpeg-js";
 
 const App: React.FC = () => {
   const [isTfReady, setIsTfReady] = useState(false);
   const [mobilenetModel, setMobilenetModel] = useState(null);
   const [image, setImage] = useState({
-    uri: "https://lawnuk.com/wp-content/uploads/2016/08/sprogs-dogs.jpg"
+    uri: null,
   });
   const [predictions, setPredictions] = useState(null);
 
@@ -32,17 +34,41 @@ const App: React.FC = () => {
 
   // === START CLASSIFICATION ==
 
-  const classifyImage = async () => {
+  const classifyImage = async (imgUri) => {
     try {
-      const response = await tfjsFetch(image.uri, {}, { isBinary: true });
-      const rawImageData = await response.arrayBuffer();
-      const imageTensor = imageToTensor(rawImageData);
-      const predictions = await mobilenetModel.classify(imageTensor);
-      setPredictions(predictions);
+      const fileUri = imgUri;
+      const imgB64 = await FileSystem.readAsStringAsync(fileUri, {
+        encoding: FileSystem.EncodingType.Base64,
+      });
+      const imgBuffer = tf.util.encodeString(imgB64, "base64").buffer;
+      const newData = new Uint8Array(imgBuffer);
+      const imageTensor = decodeJpeg(newData); // transforms byte array into 3d tensor
+      const prediction = await mobilenetModel.classify(imageTensor);
+      setPredictions(prediction);
+      console.info(prediction);
+
     } catch (error) {
       console.log(error);
     }
   };
+
+  const selectImage = async () => {
+    try {
+      let response = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: false,
+        aspect: [4, 3]
+      })
+
+      if (!response.cancelled) {
+        const source = { uri: response.uri }
+        await setImage(source);
+        classifyImage(response.uri);
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // === CLEAR PREDICTIONS ==
 
@@ -85,7 +111,7 @@ const App: React.FC = () => {
       />
       <Button
         title="Predict"
-        onPress={classifyImage}
+        onPress={mobilenetModel ? selectImage : undefined}
         disabled={mobilenetModel ? false : true}
       />
       {predictions ? (
