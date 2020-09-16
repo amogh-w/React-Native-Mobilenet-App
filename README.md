@@ -1,7 +1,7 @@
 # React Native Mobilenet App (now with Local Images!)
 
 This is a fork from https://github.com/amogh-w/React-Native-Mobilenet-App,
-thank you [amogh-w] https://github.com/amogh-w
+thank you [amogh-w](https://github.com/amogh-w)
 
 Now it can fetch Local Images!
 
