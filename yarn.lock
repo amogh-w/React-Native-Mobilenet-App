@@ -1205,13 +1205,14 @@
   resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-layers/-/tfjs-layers-1.5.1.tgz#52aab88ab64618bfb193a7fafc7443a7edaaa151"
   integrity sha512-DyuhifqflK+bdpBRLAj3RuWm1eTVe8yNX2+WH+W+wmhpjGg7Yagnar6/66JdS2h3WUFoiplCpZRAVMVw631E5g==
 
-"@tensorflow/tfjs-react-native@^0.1.0-alpha.2":
-  version "0.1.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-react-native/-/tfjs-react-native-0.1.0-alpha.2.tgz#83e4efd6b8ff4e454df6cb3ccc56330b7547b5be"
-  integrity sha512-VRatwALllGbJuo/8dov9LmGcmwcNItQwc8YEnQDLnEw4x5rpCSfcigvKmm0J4EcdFHgzh65j0ODzbO00QK9Z1g==
+"@tensorflow/tfjs-react-native@^0.2.1":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-react-native/-/tfjs-react-native-0.2.3.tgz#16f8f9467f84d1721acb43f8eb65e20cd7a4d7e8"
+  integrity sha512-Dt51xqVQ28/NVEwPY5WXnML9LPNES04/WYqZLhItJh4ivZSlLL3m1kby3tH03nrw1CUS9J2O4zGMEKsplfNLqA==
   dependencies:
     base64-js "^1.3.0"
     buffer "^5.2.1"
+    jpeg-js "^0.3.6"
 
 "@tensorflow/tfjs@^1.5.1":
   version "1.5.1"
@@ -2756,6 +2757,14 @@ expo-asset@~8.0.0:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
+expo-camera@~8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-8.0.0.tgz#a0caee7baf1f2013203fe6a4635125ade12ec164"
+  integrity sha512-mtP4NV2R4e+JTXUZBiA0ok4xSzTfRLxirvqJ5T7kjyozuCWUJeOhGk3hqNsBbWhwXDA+hirAge7169UB3vKfDQ==
+  dependencies:
+    lodash "^4.6.0"
+    prop-types "^15.6.0"
+
 expo-constants@~8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-8.0.0.tgz#e2c5a072dacb4263ccfc57dcb4835ca791960d48"
@@ -2795,6 +2804,13 @@ expo-gl@^8.0.0:
     expo-gl-cpp "~8.0.0"
     prop-types "^15.7.2"
 
+expo-image-picker@~8.0.1:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-8.0.2.tgz#14139f1d73793ae7fba6fe3cf34e1dc91baf402a"
+  integrity sha512-oa0/JoKIv5mxyadpVqiQ+BXak2s7QS3+Rurj1j/gL5GGFmb3cDJWbGHxvtrEXEccv8812JAp5BfBRqfzlW1gMQ==
+  dependencies:
+    expo-permissions "*"
+
 expo-keep-awake@~8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-8.0.0.tgz#f9200a876a5db86e3f0aec8843428a918cdc08d6"
@@ -2811,6 +2827,11 @@ expo-location@~8.0.0:
   integrity sha512-48i4dUCaqPTwSri79yummKwg6vE6loI7d4iHCrbG4EEuN3fhS8I9xU60CEkoNZTziH9zK0iw4KSjr7DbXUAaCw==
   dependencies:
     invariant "^2.2.4"
+
+expo-permissions@*:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-9.1.0.tgz#b830a9e8100d5650a874122b432a65ab1dfdf4c1"
+  integrity sha512-nNF8voeRSzMCIJzt27dmpHHm70ZiZh528GJJzHd9qX9aIgrN2j0WsrFI31p7Q8uPUI8HDCBbF7JmvO91GmFrhQ==
 
 expo-permissions@~8.0.0:
   version "8.0.0"
