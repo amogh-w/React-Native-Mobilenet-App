@@ -1,8 +1,11 @@
-# React Native Mobilenet App
+# React Native Mobilenet App (now with Local Images!)
 
-Testing Tensorflow.js adapter for React Native to enable on-device computing capabilities with the Mobilenet Pre-trained model.
+This is a fork from https://github.com/amogh-w/React-Native-Mobilenet-App,
+thank you [amogh-w](https://github.com/amogh-w)
 
-![working](/media/screenshot.png)
+Now it can fetch Local Images!
+
+![working](/media/initial.gif)
 
 ## Resources:
 
@@ -10,10 +13,6 @@ Testing Tensorflow.js adapter for React Native to enable on-device computing cap
 - [React Native](https://github.com/facebook/react-native) - A framework for building native apps with React
 - [tfjs-react-native](https://github.com/tensorflow/tfjs/tree/master/tfjs-react-native) - Platform Adapter for React Native
 - [@tensorflow-models/mobilenet](https://github.com/tensorflow/tfjs-models) - Pre-trained TensorFlow.js models
-
-## Important:
-
-Picking an image from the gallery is limited by the tfjs fetch request - [Read More](https://github.com/amandeepmittal/mobilenet-tfjs-expo/issues/1)
 
 ## Available Scripts:
 
